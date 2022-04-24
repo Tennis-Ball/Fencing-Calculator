@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fencing Calculator</title>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <div class="message_flash">{{ message }}</div>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</head>
+<body>
+    <h1>DE Calculator</h1>
+    <form action="/DE" method="POST">
+        <input type="number" name="seed" placeholder="Enter seed after pools"/>
+        <input type="number" name="competitors" placeholder="Total number of fencers"/>
+        <input type="submit" value="submit"/>
+    </form>
+    {% if incompleteTable %}
+        <div>
+            <p>An incomplete table of {{ incompleteTable }} will be fenced</p>
+            <p>The top {{ bys }} fencers out of pools will receive bys</p>
+            {% if hasBy %}
+                <p>You will have a by past the round of {{ incompleteTable }}</p>
+            {% else %}
+                <p>You will not have a by and will fence in the round of {{ incompleteTable }} first</p>
+            {% endif %}
+            <p>You will fence seed {{ opponent }} for your first DE bout</p>
+        </div>
+    {% else %}
+        <p>Find out who you are fencing in DEs before they are released</p>
+    {% endif %}
+
+    <div style="position: absolute; bottom: 20px">
+        <a style="padding: 10px;" href="/rating">Rating Calculator</a>
+        <a style="padding: 10px;" href="/points">Points Calculator</a>
+    </div>
+</body>
+</html>

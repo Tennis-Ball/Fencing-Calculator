@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fencing Calculator</title>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <div class="message_flash">{{ message }}</div>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</head>
+<body>
+    <h1>Points Calculator</h1>
+    <form action="/points" method="POST">
+        <input type="radio" id="NAC" name="competition" value="NAC">
+        <label for="NAC">NAC</label>
+        <input type="radio" id="SC" name="competition" value="Super Circuit">
+        <label for="SC">Super Circuit</label>
+        <input type="radio" id="R" name="competition" value="regional">
+        <label for="R">Regional</label>
+        <br>
+        <br>
+        <input type="radio" id="div1" name="age" value="div1">
+        <label for="div1">Division 1</label>
+        <input type="radio" id="vet" name="age" value="vet">
+        <label for="vet">Veteran</label>
+        <input type="radio" id="div1a" name="age" value="div1a">
+        <label for="div1a">Division 1A</label>
+        <input type="radio" id="div2" name="age" value="div2">
+        <label for="div2">Division 2</label>
+        <input type="radio" id="div3" name="age" value="div3">
+        <label for="div3">Division 3</label>
+        <input type="radio" id="Junior" name="age" value="junior">
+        <label for="Junior">Junior</label>
+        <input type="radio" id="Cadet" name="age" value="cadet">
+        <label for="Cadet">Cadet</label>
+        <input type="radio" id="14" name="age" value="y14">
+        <label for="14">Y14</label>
+        <input type="radio" id="12" name="age" value="y12">
+        <label for="12">Y12</label>
+        <input type="radio" id="10" name="age" value="y10">
+        <label for="10">Y10</label>
+        <br>
+        <br>
+        <input type="number" name="result" placeholder="Final standing">
+        <input type="number" name="competitors" placeholder="Number of competitors">
+        <input type="submit" value="submit">
+    </form>
+    {% if points %}
+        <div>
+            <p>Points earned: {{ points }}</p>
+        </div>
+    {% endif %}
+
+    <div style="position: absolute; bottom: 20px">
+        <a style="padding: 10px;" href="/rating">Rating Calculator</a>
+        <a style="padding: 10px;" href="/DE">DE Calculator</a>
+    </div>
+</body>
+</html>
