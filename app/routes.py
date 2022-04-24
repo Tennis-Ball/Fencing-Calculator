@@ -59,7 +59,7 @@ def de_calculator():
             elif bys == 0:
                 opponent = competitors + 1 - seed
             else:
-                opponent = bys + (50 - (seed - bys) + 1)
+                opponent = bys + ((competitors - bys) - (seed - bys) + 1)
 
             return render_template('DE_calculator.html', incompleteTable=incomplete_table,
                                    bys=bys,
