@@ -171,4 +171,4 @@ def rating_calculator():
 
 @app.route('/')
 def landing_page():
-    return redirect(url_for('DE'))
+    return redirect(url_for('de_calculator'))
