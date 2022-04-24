@@ -167,3 +167,8 @@ def rating_calculator():
 
         return render_template('rating_calculator.html', awards=awards)
     return render_template('rating_calculator.html')
+
+
+@app.route('/')
+def landing_page():
+    return redirect(url_for('DE'))
