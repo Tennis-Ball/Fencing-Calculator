@@ -121,7 +121,7 @@ def points_calculator():
                 points = naccadet[place - 1]
             elif age == 'junior':
                 points = nacjunior[place - 1]
-            elif age == 'nacdiv1':
+            elif age == 'div1':
                 points = nacdiv1[place - 1]
             elif age == 'vet':
                 points = nacvet[place - 1]
